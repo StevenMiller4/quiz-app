@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -9,13 +10,31 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
     type="text/css" />
   <link href="app.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
+
   <header>
-    <h1>The name of your quiz</h1>
+    <h1>Starbucks Barista Knowledge Quiz</h1>
   </header>
-  <main></main>
+
+  <main class="container">
+    <div id="question-container" class="hide">
+      <div id="question">Question</div>
+      <div id="answer-button" class="button-grid">
+        <button class="button">Answer 1</button>
+        <button class="button">Answer 2</button>
+        <button class="button">Answer 3</button>
+        <button class="button">Answer 4</button>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="start-button" class="start-button button">Start</button>
+      <button id="next-button" class="next-button button hide">Next</button>
+    </div>
+  </main>
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
   <script src="app.js"></script>
 </body>
