@@ -106,6 +106,40 @@ const store = {
   score: 0
 };
 
+
+function generateNewQuestionForm(question) {
+  
+}
+
+function generateQuestionFormString(quizQuestions) {
+  console.log("Generating shopping list element");
+  const questions = quizQuestions.map((question) => generateNewQuestionForm(question));
+  return questions.join("");
+}
+
+function renderQuizQuestion() {
+  console.log('`renderQuizQuestion` ran');
+  const quizQuestionFormString = generateQuestionFormString(store);
+  $('.js-quiz').html(quizQuestionFormString);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /**
  * 
  * Technical requirements:

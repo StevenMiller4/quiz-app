@@ -2,40 +2,35 @@
   box-sizing: border-box;
 }
 
-.box {
-  background-color: pink;
-  border:1px solid blue;
-  margin: 10px 0;
-  padding:10px;
+header {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  height: 20vh;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00704A;
+  color: white;
+  border: 10px outset #27251F;
 }
 
-@media (min-width: 700px) {
-  body {
-    width: 80%;
-    margin: 0 auto;
-  }
-  .box {
-    width: 47%;
-    float: left;
-  }
-  .box:nth-child(odd) {
-    margin-right: 6%;
-  }
+.introduction {
+  display: block;
+  text-align: center;
 }
 
-@media (min-width: 1024px) {
-  .box {
-    width: 29.33%;
-    float: left;
-    margin-right: 6%;
-  }
-  .box:nth-child(3n+3) {
-    margin-right: 0;
-  }
+.controls {
+  text-align: center;
 }
 
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
+
+@media all and (min-width: 700px) {
+  
+}
+
+.hide {
+  display: none;
 }
