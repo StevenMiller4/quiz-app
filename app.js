@@ -108,11 +108,15 @@ const store = {
 
 
 function generateNewQuestionForm(question) {
-  
+  return `
+    <h3>${store.questions.question[0]}</h3>
+      <input name=
+      
+      `
 }
 
 function generateQuestionFormString(quizQuestions) {
-  console.log("Generating shopping list element");
+  console.log("Generating question form element");
   const questions = quizQuestions.map((question) => generateNewQuestionForm(question));
   return questions.join("");
 }
