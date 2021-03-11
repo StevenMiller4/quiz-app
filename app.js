@@ -106,13 +106,19 @@ const store = {
   score: 0
 };
 
+let counter = 0;
 
 function generateNewQuestionForm(question) {
   return `
-    <h3>${store.questions.question[0]}</h3>
-      <input name=
-      
-      `
+    <h3>${questions.question[counter]}</h3>
+      <input name="answer" type="radio" value="answer-a" id="answer-1">
+      <label for="answer-a">${questions.question[counter].answers[0]}</label><br>
+      <input name="answer" type="radio" value="answer-b" id="answer-2">
+      <label for="answer-b">${questions.question[counter].answers[1]}</label><br>
+      <input name="answer" type="radio" value="answer-c" id="answer-3">
+      <label for="answer-c">${questions.question[counter].answers[2]}</label><br>
+      <input name="answer" type="radio" value="answer-d" id="answer-4">
+      <label for="answer-d">${questions.question[counter].answers[3]}</label><br>`;
 }
 
 function generateQuestionFormString(quizQuestions) {
@@ -125,6 +131,7 @@ function renderQuizQuestion() {
   console.log('`renderQuizQuestion` ran');
   const quizQuestionFormString = generateQuestionFormString(store);
   $('.js-quiz').html(quizQuestionFormString);
+  counter += 1;
 }
 
 
