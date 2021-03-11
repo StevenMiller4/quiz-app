@@ -108,37 +108,41 @@ const store = {
 
 
 
-function generateNewQuestionForm(question) {
+function generateNewQuestionForm(item, counter) {
   return `
-    <h3>${questions.question[counter]}</h3>
-      <input name="answer" type="radio" value="answer-a" id="answer-1">
-      <label for="answer-a">${questions.question[counter].answers[0]}</label><br>
-      <input name="answer" type="radio" value="answer-b" id="answer-2">
-      <label for="answer-b">${questions.question[counter].answers[1]}</label><br>
-      <input name="answer" type="radio" value="answer-c" id="answer-3">
-      <label for="answer-c">${questions.question[counter].answers[2]}</label><br>
-      <input name="answer" type="radio" value="answer-d" id="answer-4">
-      <label for="answer-d">${questions.question[counter].answers[3]}</label><br>`;
+  <input name="answer" type="radio" value="${item}" id="answer-${counter}">
+  <label for="answer-${counter}">${item}</label><br>`;
 }
 
-function generateQuestionFormString(quizQuestions) {
+function generateQuestionFormString(item) {
   console.log("Generating question form element");
-  
+  let counter = item.questionNumber;
+  let return_array = [`<h3>${item.questions[counter].question}</h3>`];
+  for(let i = 0; i < item.questions[counter].answers.length; i++) {
+    return_array.push(
+      generateNewQuestionForm(item.questions[counter].answers[i], i)
+    )
+  }
+  return return_array.join("");
 }
 
 function renderQuizQuestion() {
   console.log('`renderQuizQuestion` ran');
   const quizQuestionFormString = generateQuestionFormString(store);
-  $('.js-quiz').html(quizQuestionFormString);
-  questionNumber += 1;
+  $('#js-quiz').html(quizQuestionFormString);
 }
 
 function handleStartQuizClicked() {
-  // Hide Start Button
+  // toggle store.quizStarted to true
+  // Hide Start Quiz Button
   // Hide Introduction Class
   // untoggle Hide on Submit button
   // untoggle Hide on question container
   // call function renderQuizQuestion
+  $('.start-button').on('click', event => {
+    renderQuizQuestion();
+  });
+  
 }
 
 function handleSubmitButtonClicked() {
@@ -155,12 +159,13 @@ function quizResults() {
   // Hide quiz container
   // Hide next button
   // untoggle hide on Restart Quiz button
-  // untoggle hide on 
+  // untoggle hide on quiz-results
 }
 
 function handleNextButtonClicked() {
   // Hide Next button
   // untoggle Hide on Submit Button
+  // increment the questionNumber
   // call function renderQuizQuestion
 }
 
@@ -170,10 +175,13 @@ function handleRestartQuizClicked() {
 
 
 
+function initialize() {
+  renderQuizQuestion();
+  handleStartQuizClicked();
+}
 
 
-
-
+$(initialize);
 
 
 
