@@ -106,7 +106,7 @@ const store = {
   score: 0
 };
 
-let counter = 0;
+
 
 function generateNewQuestionForm(question) {
   return `
@@ -123,20 +123,50 @@ function generateNewQuestionForm(question) {
 
 function generateQuestionFormString(quizQuestions) {
   console.log("Generating question form element");
-  const questions = quizQuestions.map((question) => generateNewQuestionForm(question));
-  return questions.join("");
+  
 }
 
 function renderQuizQuestion() {
   console.log('`renderQuizQuestion` ran');
   const quizQuestionFormString = generateQuestionFormString(store);
   $('.js-quiz').html(quizQuestionFormString);
-  counter += 1;
+  questionNumber += 1;
 }
 
+function handleStartQuizClicked() {
+  // Hide Start Button
+  // Hide Introduction Class
+  // untoggle Hide on Submit button
+  // untoggle Hide on question container
+  // call function renderQuizQuestion
+}
 
+function handleSubmitButtonClicked() {
+  // Hide Submit Button
+  // untoggle Hide on Next Button
+  // Check whether if there are any more questions in the array, if yes:
+  // Check whether the user's submitted answer is equal to the correct answer
+  // if the answer is the same, say "Correct!" and increment Score by 1
+  // if the answer is any of the others, say "Sorry, the correct answer is: Correct Answer"
+  // If not, then call function quizResults
+}
 
+function quizResults() {
+  // Hide quiz container
+  // Hide next button
+  // untoggle hide on Restart Quiz button
+  // untoggle hide on 
+}
 
+function handleNextButtonClicked() {
+  // Hide Next button
+  // untoggle Hide on Submit Button
+  // call function renderQuizQuestion
+}
+
+function handleRestartQuizClicked() {
+  // Hide 
+}
 
 
 
