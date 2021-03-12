@@ -28,14 +28,13 @@
     <div class="quiz-results hide">
       
     </div>
-    <div id="question-container" class="">
+    <div id="question-container" class="hide">
       <form id="js-quiz">
-
       </form>
     </div>
     <div class="controls">
       <button id="start-button" class="start-button button">Start Quiz</button>
-      <button id="submit-button" class="submit-button button hide">Submit</button>
+      <button id="submit-button" class="submit-button button hide" type="submit" form="js-quiz">Submit</button>
       <button id="next-button" class="next-button button hide">Next</button>
       <button id="restart-button" class="restart-button button hide">Restart Quiz</button>
     </div>
@@ -43,6 +42,7 @@
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.js" crossorigin="anonymous"></script>
   <script src="store.js"></script>
+  <script src="templates.js"></script>
   <script src="app.js"></script>
 </body>
 

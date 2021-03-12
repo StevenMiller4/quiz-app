@@ -86,9 +86,9 @@ const store = {
           'Wash',
           'Rinse',
           'Sanitize',
-          'Dry with a towel'
+          'Towel Dry'
         ],
-        correctAnswer: 'Dry with a towel'
+        correctAnswer: 'Towel Dry'
       },
       {
         question: 'When is the best time to wash your hands?',

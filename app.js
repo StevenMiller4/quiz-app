@@ -1,9 +1,3 @@
-function generateNewQuestionForm(item, counter) {
-  return `
-  <input name="answer" type="radio" value="${item}" id="answer-${counter}">
-  <label for="answer-${counter}">${item}</label><br>`;
-}
-
 function generateQuestionFormString(item) {
   console.log("Generating question form element");
   let counter = item.questionNumber;
@@ -23,44 +17,61 @@ function renderQuizQuestion() {
 }
 
 function handleStartQuizClicked() {
-  // toggle store.quizStarted to true
-  // Hide Start Quiz Button
-  // Hide Introduction Class
-  // untoggle Hide on Submit button
-  // untoggle Hide on question container
-  // call function renderQuizQuestion
   $('.start-button').on('click', event => {
+    store.quizStarted == true;
+    $('.start-button').toggleClass('hide');
+    $('.introduction').toggleClass('hide');
+    $('.submit-button').toggleClass('hide');
+    $('#question-container').toggleClass('hide');
     renderQuizQuestion();
   });
   
 }
 
 function handleSubmitButtonClicked() {
-  // Hide Submit Button
-  // untoggle Hide on Next Button
-  // Check whether the user's submitted answer is equal to the correct answer
-  // if the answer is the same, say "Correct!" and increment Score by 1
-  // if the answer is any of the others, say "Sorry, the correct answer is: Correct Answer"
-  // Check whether if there are any more questions in the array, if yes:
-  // If not, then call function quizResults
-}
-
-function quizResults() {
-  // Hide quiz container
-  // Hide next button
-  // untoggle hide on Restart Quiz button
-  // untoggle hide on quiz-results
+    $('#js-quiz').submit(function (event) {
+      event.preventDefault();
+      $('.submit-button').toggleClass('hide');
+      $('.next-button').toggleClass('hide');
+      const userAnswer = $('input[name="answer"]:checked').val();
+      generateQuestionResultsForm(userAnswer);
+    });
 }
 
 function handleNextButtonClicked() {
-  // Hide Next button
-  // untoggle Hide on Submit Button
-  // increment the questionNumber
-  // call function renderQuizQuestion
+  $('.next-button').on('click', event => {
+    $('.next-button').toggleClass('hide');
+    $('.submit-button').toggleClass('hide');
+    $(".reply").remove();
+    store.questionNumber += 1;
+    if (store.questionNumber < store.questions.length) {
+      renderQuizQuestion();
+    } else {
+      quizResults();
+    }
+  });
+}
+
+function quizResults() {
+  $('#question-container').addClass('hide');
+  $('.next-button').addClass('hide');
+  $('.submit-button').addClass('hide');
+  $('.restart-button').toggleClass('hide');
+  $('.quiz-results').toggleClass('hide');
+  const quizResults = generateQuizResultsForm();
+  $('.quiz-results').html(quizResults);
 }
 
 function handleRestartQuizClicked() {
-  // Hide 
+  $('.restart-button').on('click', event => {
+    store.quizStarted == false;
+    $('.start-button').toggleClass('hide');
+    $('.introduction').toggleClass('hide');
+    $('.restart-button').toggleClass('hide');
+    $('.results').remove();
+    store.questionNumber = 0;
+    store.score = 0;
+  });
 }
 
 
@@ -68,6 +79,9 @@ function handleRestartQuizClicked() {
 function initialize() {
   renderQuizQuestion();
   handleStartQuizClicked();
+  handleSubmitButtonClicked();
+  handleNextButtonClicked();
+  handleRestartQuizClicked();
 }
 
 
