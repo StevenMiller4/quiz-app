@@ -17,12 +17,12 @@ function generateQuestionResultsForm(answer) {
   }
 }
 
-function generateQuizResultsForm() {
-  if (store.score == 10) {
+function generateQuizResultsForm(item) {
+  if (item.score == item.questions.length) {
     return `<p class="results">Congratulations, you answered all the questions correctly!</p>`;
-  } else if (store.score >= 7 && store.score < 10) {
+  } else if (item.score >= item.questions.length * 0.8 && item.score < item.questions.length) {
     return `<p class="results">Nice job! You answered ${store.score} questions correctly! You should try again for a perfect score!</p>`;
-  } else if (store.score < 7) {
+  } else if (item.score < item.questions.length * 0.8) {
     return `<p class="results">You answered ${store.score} questions correctly. You may want to ask your Barista Trainer if you have any questions.</p>`;
   }
 }

@@ -24,7 +24,7 @@ function handleStartQuizClicked() {
     $('.start-button').toggleClass('hide');
     $('.introduction').toggleClass('hide');
     $('.submit-button').toggleClass('hide');
-    $('#question-container').toggleClass('hide');
+    $('#js-quiz').toggleClass('hide');
     renderQuizQuestion();
   });
   
@@ -55,12 +55,12 @@ function handleNextButtonClicked() {
 }
 
 function quizResults() {
-  $('#question-container').addClass('hide');
+  $('#js-quiz').addClass('hide');
   $('.next-button').addClass('hide');
   $('.submit-button').addClass('hide');
   $('.restart-button').toggleClass('hide');
   $('.quiz-results').toggleClass('hide');
-  const quizResults = generateQuizResultsForm();
+  const quizResults = generateQuizResultsForm(store);
   $('.quiz-results').html(quizResults);
 }
 
@@ -70,6 +70,7 @@ function handleRestartQuizClicked() {
     $('.start-button').toggleClass('hide');
     $('.introduction').toggleClass('hide');
     $('.restart-button').toggleClass('hide');
+    $('.quiz-results').addClass('hide');
     $('.results').remove();
     store.questionNumber = 0;
     store.score = 0;
