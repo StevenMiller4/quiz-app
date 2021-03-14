@@ -1,7 +1,9 @@
 function generateQuestionFormString(item) {
   console.log("Generating question form element");
   let counter = item.questionNumber;
-  let return_array = [`<h3>${item.questions[counter].question}</h3>`];
+  let return_array = [
+    `<h2>Question: ${item.questionNumber}/${item.questions.length} Score: ${item.score}/${item.questions.length}</h2>`,
+    `<h3>${item.questions[counter].question}</h3>`];
   for(let i = 0; i < item.questions[counter].answers.length; i++) {
     return_array.push(
       generateNewQuestionForm(item.questions[counter].answers[i], i)
