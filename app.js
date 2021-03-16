@@ -1,3 +1,5 @@
+// Function to generate the question form to be used in 'renderQuizQuestion', calling on the template function 'generateNewQuestionForm'
+
 function generateQuestionFormString(item) {
   console.log("Generating question form element");
   let counter = item.questionNumber;
@@ -12,11 +14,15 @@ function generateQuestionFormString(item) {
   return return_array.join("");
 }
 
+// The render function for the app to be called whenever there is a change to the store object to update the DOM
+
 function renderQuizQuestion() {
   console.log('`renderQuizQuestion` ran');
   const quizQuestionFormString = generateQuestionFormString(store);
   $('#js-quiz').html(quizQuestionFormString);
 }
+
+// Event handler function to deal with the 'Start Quiz' button
 
 function handleStartQuizClicked() {
   $('.start-button').on('click', event => {
@@ -30,6 +36,8 @@ function handleStartQuizClicked() {
   
 }
 
+// Event handler function to deal with the 'Submit' button
+
 function handleSubmitButtonClicked() {
     $('#js-quiz').submit(function (event) {
       event.preventDefault();
@@ -39,6 +47,8 @@ function handleSubmitButtonClicked() {
       generateQuestionResultsForm(userAnswer);
     });
 }
+
+// Event handler function to deal with the 'Next' button
 
 function handleNextButtonClicked() {
   $('.next-button').on('click', event => {
@@ -54,6 +64,8 @@ function handleNextButtonClicked() {
   });
 }
 
+// Function called if there is no longer any questions in the store object in order to generate the quiz results
+
 function quizResults() {
   $('#js-quiz').addClass('hide');
   $('.next-button').addClass('hide');
@@ -63,6 +75,8 @@ function quizResults() {
   const quizResults = generateQuizResultsForm(store);
   $('.quiz-results').html(quizResults);
 }
+
+// Event handler function to deal with the 'Restart Quiz' button
 
 function handleRestartQuizClicked() {
   $('.restart-button').on('click', event => {
@@ -77,7 +91,7 @@ function handleRestartQuizClicked() {
   });
 }
 
-
+// A jQuery initializing function to call all functions
 
 function initialize() {
   renderQuizQuestion();

@@ -1,3 +1,5 @@
+// Moved the object, store, to a seperate store.js file to reduce clutter.
+
 const store = {
     questions: [
       {
