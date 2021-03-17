@@ -53,17 +53,17 @@ const store = {
         correctAnswer: 'Strawberries and Cream Frappuccino'
       },
       {
-        question: 'Vanilla Sweet Cream Cold Brew gets:',
+        question: 'Using a full dose Vanilla pump, how many pumps of Vanilla would go in a Venti Vannilla Sweet Cream Cold Brew?',
         answers: [
-          'Full pumps of Vanilla',
-          'Half pumps of Vanilla',
-          'Breve / Cream',
-          'Full pumps of Classic'
+          'Six pumps of Vanilla',
+          'Five pumps of Vanilla',
+          'Three pumps of Vanilla',
+          'It comes with Classic, not Vanilla'
         ],
-        correctAnswer: 'Half pumps of Vanilla'
+        correctAnswer: 'Three pumps of Vanilla'
       },
       {
-        question: 'When is the "stopping point" during beverage routine for Cinnamon Dolce Lattes?',
+        question: '“At what point during beverage routine for a Cinnamon Dolce Latte would you start the next drink?',
         answers: [
           'Steam Milk',
           'Queue Shots',
