@@ -53,7 +53,7 @@ const store = {
         correctAnswer: 'Strawberries and Cream Frappuccino'
       },
       {
-        question: 'Using a full dose Vanilla pump, how many pumps of Vanilla would go in a Venti Vannilla Sweet Cream Cold Brew?',
+        question: 'Using a full dose Vanilla pump, how many pumps of Vanilla would go in a Venti Vanilla Sweet Cream Cold Brew?',
         answers: [
           'Six pumps of Vanilla',
           'Five pumps of Vanilla',
